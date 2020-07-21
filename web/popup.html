@@ -9,17 +9,23 @@
   <body>
     <div id="rootcontainer">
       <div class="header" id="mainHeader">Jira Suite</div>
+      <div id="error-content" class="hidden">
+        <p>Can't insert on this web page.</p>
+        <p>Try a different page.</p>
+      </div>
       <div class="subheader tooltip" id="subhead1">
         Snips<span class="tooltiptext"
           >Insert snip @ current cursor position</span
         >
       </div>
-      <div class="button snippit" id="pitem1">Acceptance Criteria</div>
-      <div class="button snippit" id="pitem2">Story</div>
-      <div class="button snippit" id="pitem3">SW Bug</div>
-      <div class="button snippit" id="pitem4">HW Bug</div>
-      <div class="button snippit" id="pitem5">Move Item</div>
-      <div class="button snippit" id="pitem6">Close Item</div>
+      <div class="subgrid" id="snipscontainer">
+        <div class="button snippit" id="pitem1">Acceptance Criteria</div>
+        <div class="button snippit" id="pitem2">Story</div>
+        <div class="button snippit" id="pitem3">SW Bug</div>
+        <div class="button snippit" id="pitem4">HW Bug</div>
+        <div class="button snippit" id="pitem5">Move Item</div>
+        <div class="button snippit" id="pitem6">Close Item</div>
+      </div>
       <div class="subheader tooltip" id="subhead2">
         Quick Access<span class="tooltiptext">Quick access to jira items</span>
       </div>
@@ -31,11 +37,6 @@
       <button id="copyIssue" class="copyButton">Copy</button>
       <div class="subheader" id="subhead3">Utilities</div>
       <button id="openHiddenPage" class="hiddenPage">Open Settings</button>
-    </div>
-
-    <div id="error-content" class="hidden">
-      <p>Can't insert on this web page.</p>
-      <p>Try a different page.</p>
     </div>
     <script src="../js/snip.js"></script>
   </body>

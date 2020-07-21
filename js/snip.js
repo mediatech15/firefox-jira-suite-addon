@@ -1,5 +1,5 @@
 function listenForClicks() {
-  document.addEventListener("click", (e) => {
+  document.addEventListener("mousedown", (e) => {
     function reportError(error) {
       console.error(`Error: ${error}`);
     }
@@ -40,9 +40,9 @@ function listenForClicks() {
         uri = "https://" + uri;
       }
       if (uri.endsWith("/")) {
-        uri += issue;
+        uri += "browse/" + issue;
       } else {
-        uri += "/" + issue;
+        uri += "/browse/" + issue;
       }
       console.log(`uri: ${uri}`);
       return uri;
@@ -62,31 +62,44 @@ function listenForClicks() {
       creating.catch(reportError);
     }
 
+    function copysnip(){
+      var writing = navigator.clipboard.writeText(getSnip(e.target.textContent));
+      writing.catch(reportError);
+    }
+
     function copyClipboard() {
       var writing = navigator.clipboard.writeText(makeURL());
       writing.catch(reportError);
     }
-
-    if (e.target.classList.contains("snippit")) {
-      browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(insertSnip)
-        .catch(reportError);
-    } else if (e.target.classList.contains("goButton")) {
-      browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(openURL)
-        .catch(reportError);
-    } else if (e.target.classList.contains("copyButton")) {
-      browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(copyClipboard)
-        .catch(reportError);
-    } else if (e.target.classList.contains("hiddenPage")) {
-      browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(openConfig)
-        .catch(reportError);
+    if (e.button == 0) {
+      if (e.target.classList.contains("snippit")) {
+        browser.tabs
+          .query({ active: true, currentWindow: true })
+          .then(insertSnip)
+          .catch(reportError);
+      } else if (e.target.classList.contains("goButton")) {
+        browser.tabs
+          .query({ active: true, currentWindow: true })
+          .then(openURL)
+          .catch(reportError);
+      } else if (e.target.classList.contains("copyButton")) {
+        browser.tabs
+          .query({ active: true, currentWindow: true })
+          .then(copyClipboard)
+          .catch(reportError);
+      } else if (e.target.classList.contains("hiddenPage")) {
+        browser.tabs
+          .query({ active: true, currentWindow: true })
+          .then(openConfig)
+          .catch(reportError);
+      }
+    } else if (e.button == 2){
+      if (e.target.classList.contains("snippit")) {
+        browser.tabs
+          .query({ active: true, currentWindow: true })
+          .then(copysnip)
+          .catch(reportError);
+      }
     }
   });
 }
@@ -250,6 +263,7 @@ function reportExecuteScriptError(error) {
   console.error(`Failed to execute insert content script: ${error.message}`);
 }
 
+document.addEventListener('contextmenu', event => event.preventDefault());
 /**
  * When the popup loads, inject a content script into the active tab,
  * and add a click handler.
