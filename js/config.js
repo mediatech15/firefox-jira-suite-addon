@@ -40,10 +40,30 @@ function listenForClicks() {
       parent.parentNode.insertBefore(el, parent.nextSibling);
     }
 
+    function save() {
+      stor.set({ accept: document.getElementById("accept").value });
+      stor.set({ story: document.getElementById("story").value });
+      stor.set({ swBug: document.getElementById("swbug").value });
+      stor.set({ hwBug: document.getElementById("hwbug").value });
+      stor.set({ moveItem: document.getElementById("moveissue").value });
+      stor.set({ closeItem: document.getElementById("closeissue").value });
+      var el = document.createElement("p");
+      el.id = "save-text";
+      el.innerText =
+        "Config has been saved.";
+      var parent = document.getElementById("save");
+      parent.parentNode.insertBefore(el, parent.nextSibling);
+    }
+
     if (e.target.id == "reset") {
       browser.tabs
         .query({ active: true, currentWindow: true })
         .then(reset)
+        .catch(reportError);
+    } else if (e.target.id == "save") {
+      browser.tabs
+        .query({ active: true, currentWindow: true })
+        .then(save)
         .catch(reportError);
     }
   });

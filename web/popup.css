@@ -30,6 +30,10 @@ input {
   display: none;
 }
 
+#error-content{
+  color: white;
+}
+
 .button {
   height: 80px;
   word-wrap: normal;
