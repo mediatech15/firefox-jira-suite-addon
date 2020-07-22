@@ -13,7 +13,7 @@
         <p>Can't insert on this web page.</p>
         <p>Try a different page.</p>
       </div>
-      <div class="subheader tooltip" id="subhead1">
+      <div class="subheader tooltip" id="snipshead">
         Snips<span class="tooltiptext"
           >Insert snip @ current cursor position</span
         >
@@ -26,16 +26,35 @@
         <div class="button snippit" id="pitem5">Move Item</div>
         <div class="button snippit" id="pitem6">Close Item</div>
       </div>
-      <div class="subheader tooltip" id="subhead2">
+      <div class="subheader tooltip" id="usersnipshead">
+        User Snips<span class="tooltiptext"
+          >Insert snip @ current cursor position</span
+        >
+      </div>
+      <div class="subgrid2" id="usersnipscontainer">
+        <div class="button2 snippit" id="uitem1">1</div>
+        <div class="button2 snippit" id="uitem2">2</div>
+        <div class="button2 snippit" id="uitem3">3</div>
+        <div class="button2 snippit" id="uitem4">4</div>
+        <div class="button2 snippit" id="uitem5">5</div>
+        <div class="button2 snippit" id="uitem6">6</div>
+        <div class="button2 snippit" id="uitem7">7</div>
+        <div class="button2 snippit" id="uitem8">8</div>
+        <div class="button2 snippit" id="uitem9">9</div>
+        <div class="button2 snippit" id="uitem10">10</div>
+      </div>
+      <div class="subheader tooltip" id="linkhead">
         Quick Access<span class="tooltiptext">Quick access to jira items</span>
       </div>
-      <p id="qa1">Jira Instance:</p>
-      <input type="text" id="siteUrl" />
-      <p id="qa2">Issue:</p>
-      <input type="text" id="issueId" />
-      <button id="goToIssue" class="goButton">Go</button>
-      <button id="copyIssue" class="copyButton">Copy</button>
-      <div class="subheader" id="subhead3">Utilities</div>
+      <div class="subgrid3" id="linkscontainer">
+        <p id="qa1">Jira Instance:</p>
+        <input type="text" id="siteUrl" />
+        <p id="qa2">Issue:</p>
+        <input type="text" id="issueId" />
+        <button id="goToIssue" class="goButton">Go</button>
+        <button id="copyIssue" class="copyButton">Copy</button>
+      </div>
+      <div class="subheader" id="utilhead">Utilities</div>
       <button id="openHiddenPage" class="hiddenPage">Open Settings</button>
     </div>
     <script src="../js/snip.js"></script>

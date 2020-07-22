@@ -1,3 +1,5 @@
+/* HTML Classes */
+
 html,
 body {
   width: auto;
@@ -26,6 +28,8 @@ input {
   border-width: 0 0 1px 0;
 }
 
+/* General Classes */
+
 .hidden {
   display: none;
 }
@@ -33,21 +37,6 @@ input {
 #error-content {
   color: white;
   grid-column: 1/5;;
-}
-
-.subgrid{
-  display: grid;
-  column-gap: 5px;
-  row-gap: 5px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  align-content: space-evenly;
-  justify-content: space-evenly;
-}
-
-#snipscontainer{
-  grid-column: 1/5;
-  grid-row: 3/4;
 }
 
 .button {
@@ -66,7 +55,23 @@ input {
   background-color: rgb(75, 75, 75);
 }
 
-.button:hover {
+.button2 {
+  height: 30px;
+  word-wrap: normal;
+  font-size: 0.8em;
+  cursor: default;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  transition: 0.3s;
+  background-color: rgb(75, 75, 75);
+}
+
+.button:hover, .button2:hover {
   background-color: rgb(107, 107, 107);
 }
 
@@ -89,12 +94,14 @@ input {
   cursor: default;
 }
 
+/* Page Flow */
+
 #rootcontainer {
   display: grid;
   column-gap: 5px;
   row-gap: 5px;
   grid-template-columns: 40px 40px 40px 40px;
-  grid-template-rows: 3em 1.2em auto 1.2em 1.7em auto 1.7em auto auto 1.2em;
+  grid-template-rows: 3em 1.2em auto 1.2em auto 1.2em auto 1.2em 1.7em;
   align-content: space-evenly;
   justify-content: space-evenly;
 }
@@ -104,97 +111,128 @@ input {
   grid-row: 1/2;
 }
 
-#subhead1 {
+#snipshead {
   grid-column: 1/5;
   grid-row: 2/3;
 }
 
-#pitem1 {
-  grid-column: 1/2;
-  grid-row: 1/2;
-}
-
-#pitem2 {
-  grid-column: 2/3;
-  grid-row: 1/2;
-}
-#pitem3 {
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-#pitem4 {
-  grid-column: 2/3;
-  grid-row: 2/3;
-}
-
-#pitem5 {
-  grid-column: 1/2;
+#snipscontainer{
+  grid-column: 1/5;
   grid-row: 3/4;
 }
 
-#pitem6 {
-  grid-column: 2/3;
-  grid-row: 3/4;
-}
-
-#subhead2 {
+#usersnipshead{
   grid-column: 1/5;
   grid-row: 4/5;
 }
 
-#qa1 {
-  grid-column: 1 / 5;
+#usersnipscontainer{
+  grid-column: 1/5;
   grid-row: 5/6;
+}
+
+#linkhead {
+  grid-column: 1/5;
+  grid-row: 6/7;
+}
+
+#linkscontainer{
+  grid-column: 1/5;
+  grid-row: 7/8;
+}
+
+#utilhead {
+  grid-column: 1/5;
+  grid-row: 8/9;
+}
+
+#openHiddenPage {
+  grid-column: 1/5;
+  grid-row: 9/10;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 1.7em;
+}
+
+/* snipscontainer */
+
+.subgrid{
+  display: grid;
+  column-gap: 2px;
+  row-gap: 2px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+/* usersnips container*/
+
+.subgrid2{
+  display: grid;
+  column-gap: 2px;
+  row-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+/* links container */
+
+.subgrid3{
+  display: grid;
+  column-gap: 5px;
+  row-gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2em auto 2em auto;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+#qa1 {
+  grid-column: 1/3;
+  grid-row: 1/2;
   color: white;
   font-size: 0.8em;
   cursor: default;
 }
 
 #siteUrl {
-  grid-column: 1 / 5;
-  grid-row: 6/7;
+  grid-column: 1/3;
+  grid-row: 2/3;
 }
 
 #qa2 {
-  grid-column: 1 / 5;
-  grid-row: 7/8;
+  grid-column: 1/3;
+  grid-row: 3/4;
   color: white;
   font-size: 0.8em;
   cursor: default;
 }
 
 #issueId {
-  grid-column: 1 / 5;
-  grid-row: 8/9;
+  grid-column: 1/3;
+  grid-row: 4/5;
 }
 
 #goToIssue {
-  grid-column: 1 / 3;
-  grid-row: 9/10;
+  grid-column: 1/2;
+  grid-row: 5/6;
   height: 1.7em;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
 #copyIssue {
-  grid-column: 3 / 5;
-  grid-row: 9/10;
+  grid-column: 2/3;
+  grid-row: 5/6;
   height: 1.7em;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-#subhead3 {
-  grid-column: 1/5;
-  grid-row: 10/11;
-}
-
-#openHiddenPage {
-  grid-column: 1/5;
-  grid-row: 11/12;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+/* tooltips */
 
 .tooltip {
   position: relative;

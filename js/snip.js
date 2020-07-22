@@ -6,23 +6,43 @@ function listenForClicks() {
 
     function getSnip(snipname) {
       switch (snipname) {
-        case "Acceptance Criteria":
+        case "pitem1":
           return storageObject.accept;
-        case "Story":
+        case "pitem2":
           return storageObject.story;
-        case "SW Bug":
+        case "pitem3":
           return storageObject.swBug;
-        case "HW Bug":
+        case "pitem4":
           return storageObject.hwBug;
-        case "Move Item":
+        case "pitem5":
           return storageObject.moveItem;
-        case "Close Item":
+        case "pitem6":
           return storageObject.closeItem;
+        case "uitem1":
+          return storageObject.uitem1;
+        case "uitem2":
+          return storageObject.uitem2;
+        case "uitem3":
+          return storageObject.uitem3;
+        case "uitem4":
+          return storageObject.uitem4;
+        case "uitem5":
+          return storageObject.uitem5;
+        case "uitem6":
+          return storageObject.uitem6;
+        case "uitem7":
+          return storageObject.uitem7;
+        case "uitem8":
+          return storageObject.uitem8;
+        case "uitem9":
+          return storageObject.uitem9;
+        case "uitem10":
+          return storageObject.uitem10;
       }
     }
 
     function insertSnip(tabs) {
-      let toInsert = getSnip(e.target.textContent);
+      let toInsert = getSnip(e.target.id);
       browser.tabs.sendMessage(tabs[0].id, {
         command: "insert-snip",
         snip: toInsert,
@@ -62,8 +82,10 @@ function listenForClicks() {
       creating.catch(reportError);
     }
 
-    function copysnip(){
-      var writing = navigator.clipboard.writeText(getSnip(e.target.textContent));
+    function copysnip() {
+      var writing = navigator.clipboard.writeText(
+        getSnip(e.target.id)
+      );
       writing.catch(reportError);
     }
 
@@ -93,7 +115,7 @@ function listenForClicks() {
           .then(openConfig)
           .catch(reportError);
       }
-    } else if (e.button == 2){
+    } else if (e.button == 2) {
       if (e.target.classList.contains("snippit")) {
         browser.tabs
           .query({ active: true, currentWindow: true })
@@ -241,6 +263,36 @@ h4. If direct duplicate was it linked?
 `,
     });
   }
+  if (storageObject.uitem1 == undefined) {
+    stor.set({ uitem1: "" });
+  }
+  if (storageObject.uitem2 == undefined) {
+    stor.set({ uitem2: "" });
+  }
+  if (storageObject.uitem3 == undefined) {
+    stor.set({ uitem3: "" });
+  }
+  if (storageObject.uitem4 == undefined) {
+    stor.set({ uitem4: "" });
+  }
+  if (storageObject.uitem5 == undefined) {
+    stor.set({ uitem5: "" });
+  }
+  if (storageObject.uitem6 == undefined) {
+    stor.set({ uitem6: "" });
+  }
+  if (storageObject.uitem7 == undefined) {
+    stor.set({ uitem7: "" });
+  }
+  if (storageObject.uitem8 == undefined) {
+    stor.set({ uitem8: "" });
+  }
+  if (storageObject.uitem9 == undefined) {
+    stor.set({ uitem9: "" });
+  }
+  if (storageObject.uitem10 == undefined) {
+    stor.set({ uitem10: "" });
+  }
 }
 
 let storageObject;
@@ -263,7 +315,7 @@ function reportExecuteScriptError(error) {
   console.error(`Failed to execute insert content script: ${error.message}`);
 }
 
-document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener("contextmenu", (event) => event.preventDefault());
 /**
  * When the popup loads, inject a content script into the active tab,
  * and add a click handler.
